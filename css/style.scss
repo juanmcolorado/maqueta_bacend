@@ -1,0 +1,82 @@
+nav{    
+    .j3size{
+        width: 2rem;
+        margin: 1rem;
+    }
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+}
+.container1{
+    width: 68%;
+    padding: 2rem;
+        .j3sizeimg{
+            width: 50%;        }
+        .j3divtext{
+            font-size: 10px;
+        }    
+        button{
+            border-bottom-color: light;
+            transition: border-bottom-color 1s;
+        }
+        button:hover{
+            border-bottom-color: black;
+        }
+}
+.container2{
+    width: 30%;
+}
+
+.con2-Img{
+    border-radius: 2rem;
+    width: 4.4rem;
+}
+.j3textfont{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.c2btn-princ :hover{
+    background-color: rgb(104, 101, 100);
+}
+.img-card-E{
+    height: 30vh;
+    border: none;
+    margin-bottom: 2rem;
+}
+
+.bg-color-boton{
+    background-color:limegreen;
+
+}
+
+.user_img{
+    height: 35px;
+    width: 35px;
+}
+.contPost{
+    margin: 6rem;
+}
+.form{
+    padding: 3rem;
+}
+
+.role{
+    font-size: 15px;
+}
+
+@media  (max-width: 767px){
+    .contPost{
+        margin: 0;
+    }
+    .users{
+        display:block;
+    }
+    .container1{
+        width: 100%;
+    }
+    .form{
+        padding: 0.5rem;
+    }
+}

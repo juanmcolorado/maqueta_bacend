@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medium</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/c26e936b31.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="p-3">
+    <div> <!--Modal login--> 
+        <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Login your account</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-outline mb-4">
+                                <input type="email" id="form1Example13" class="form-control form-control-lg" />
+                                    <label class="form-label" for="form1Example13">Email address</label>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="password" id="form1Example23" class="form-control form-control-lg" />
+                                    <label class="form-label" for="form1Example23">Password</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+                                <button type="submit" class="btn btn-danger btn-lg btn-block"><a href="index.html" class="text-decoration-none">Cancel</a></button>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div> <!--Modal--> 
+        <div class="modal fade" id="modalPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Escribe tu nuevo post</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="input-group">
+                                <span class="input-group-text">Título</span>
+                                    <input type="text" aria-label="First name" class="form-control" id="title">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text">URL de tu imagen Perfil</span>
+                                    <input type="url" aria-label="First name" class="form-control" id="imgPerfil">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text">Autor</span>
+                                    <input type="text" aria-label="First name" class="form-control" id="autor">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text">Tiempo de lectura</span>
+                                    <input type="number" aria-label="First name" class="form-control" id="readingTime">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text">URL de tu imagen </span>
+                                    <input type="url" aria-label="First name" class="form-control" id="formFile">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text">Abstract</span>
+                                    <input type="text" aria-label="First name" class="form-control" id="abstract">
+                            </div>
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inputGroupSelect01">Category</label>
+                                    <select class="form-select" id="inputGroupSelect01">
+                                        <option selected>Choose...</option>
+                                            <option value="JavaScript">JavaScript</option>
+                                                <option value="Web Development">Web Development</option>
+                                                    <option value="React">React</option>
+                                    </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Contenido del post</label>
+                                    <textarea class="form-control" id="postContent" rows="3"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeModal">Close</button>
+                            <button type="button" class="btn btn-primary" id="sendPost">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-body rounded p-4 textOne">
+        <div class="container-fluid">
+            <img src="/imagenes/logo-mobile.png" alt="" width="80" height="50" class="d-block d-sm-block d-md-none">
+                <img src="/imagenes/logo-desktop.png" alt="" width="150" height="50" class="d-none d-sm-none d-md-block">
+                    <div class="d-flex">
+                        <button class="btn btn none j3size" type="button"><img src="/imagenes/busqueda.png" alt="" ></a></button>
+                            <button class="btn btn none j3size d-none d-sm-none d-md-block" type="button"><img src="/imagenes/listas.png" alt="" id="newPost"><a href="https://medium.com/me/lists"></a></button>
+                                <button class="btn btn none j3size" type="button"><img src="/imagenes/notificacion.png" alt=""></button>
+                                    <button data-bs-toggle="modal" data-bs-target="#modalPost" class="btn btn-none border-dark btn-sm m-4 rounded-pill">Post</button>
+                                    <button data-bs-toggle="modal" data-bs-target="#modalLogin" class="btn btn-none border-dark btn-sm m-4 rounded-pill">Login</button>
+                                    <button class="btn btn-none" type="button">
+                                            <img src="https://i.pravatar.cc/150?img=11" alt="" width="30" height="30" class="rounded-circle">
+                                        </button>
+                    </div>
+        </div>
+    </nav>  
+    <main>
+        <div class="container1 border-end">
+            <article class="row">
+                <div class="conteinerimg">
+                    <div class="users col-12">
+                        <div class="d-flex justify-content-between">
+                            <div class="col-2 t-margin-bottom text-center">
+                                <img src="https://i.pravatar.cc/150?img=43" class="card-img-top rounded-circle border 0 j3sizeimg" alt="..." >
+                                <p class="card-text text-nowrap j3divtext j3 text j3textfont">Lisa McMiller</p>
+                            </div>
+                                <div class="col-2 text-center">
+                                    <img src="https://i.pravatar.cc/150?img=52" class="card-img-top rounded-circle border 0 j3sizeimg" alt="..." >
+                                    <p class="card-text text-nowrap j3divtext text j3textfont">Andre Pierr</p>
+                                </div>
+                                    <div class="col-2 text-center">
+                                        <img src="https://i.pravatar.cc/150?img=45" class="card-img-top rounded-circle border 0 j3sizeimg" alt="..." >
+                                        <p class="card-text text-nowrap j3divtext text j3textfont p-0">Irina Rons</p>
+                                    </div>
+                                        <div class="col-2 text-center">
+                                            <img src="https://i.pravatar.cc/150?img=56" class="card-img-top rounded-circle border 0 j3sizeimg" alt="..." >
+                                            <p class="card-text text-nowrap j3divtext text j3textfont">Everd Tomp</p>  
+                                        </div>
+                                            <div class="col-2 text-center d-none d-sm-none d-md-block">
+                                                <img src="https://i.pravatar.cc/150?img=47" class="card-img-top rounded-circle border 0 j3sizeimg" alt="..." >
+                                                <p class="card-text text-nowrap j3divtext text j3textfont">Romina Prish</p>    
+                                            </div>
+                                                <div class="col-2 text-center d-none d-sm-none d-md-block">
+                                                    <img src="https://i.pravatar.cc/150?img=57" class="card-img-top rounded-circle border 0 j3sizeimg" alt="..." >
+                                                    <p class="card-text text-nowrap j3divtext text j3textfont">Nicolas Downs</p>
+                                                </div>
+                    </div>
+                        <div class="row mt-5 mb-5">
+                        <div class="col-5 border-bottom">
+                            <button class="btn btn-ligth text-nowrap text-uppercase m-0 p-0 j3textfont fw-bold" type="button">Following</button>
+                        </div>
+                        <div class="col-3 border-bottom">
+                            <button class="btn btn-ligth text-nowrap text-uppercase m-0 p-0 j3textfont fw-bold" type="button">Recommend for you</button>
+                        </div>
+                            <div class="col-md-8 border-bottom">
+                        <p></p>
+                    </div>
+                </div>
+                </div>  
+            </article >  
+            <div class="conteinerjs">
+                <div class="col-12  col-md-12">
+                    <div class="card m-3 img-card-E" id="listPost"></div>
+                </div>
+            </div>    
+        </div> 
+        <div class="container2 d-none d-md-block">
+            <div class="row d-md-block">
+                <div class="col-12 text-center">
+                    <div class="p-3">
+                        <img src="/imagenes/logo-aside.png" alt="" class="m-1">
+                            <p  class="m-0 j3textfont">Discover Medium writers you already</p><p class="mt-0 j3textfont">follow on Twitter.</p>
+                                <button class="rounded-pill"><img src="/imagenes/twitter.png" alt="">Conect to Twitter</button>
+                                    <p  class="m-3 j3textfont"><u>Maybe later</u></p>
+                    </div>
+                <section class="d-flex flex-column text-start">
+                    <div class="col-md-12 mb-3 m-3">
+                        <button type="button" class="badge rounded-pill text-dark border border-light fs-6 fw-light c2btn-princ" style="height: 2.5rem;" >Technology</button>
+                            <button type="button" class="badge rounded-pill text-dark border border-light fs-6 fw-light c2btn-princ" style="height: 2.5rem;">Money</button>
+                                <button type="button" class="badge rounded-pill text-dark border border-light fs-6 fw-light c2btn-princ" style="height: 2.5rem;">Business</button>
+                    </div>
+                    <div class="col-md-12 mb-3 m-3">  
+                        <button type="button" class="badge rounded-pill text-dark border border-light fs-6 fw-light c2btn-princ" style="height: 2.5rem;">Productivity</button>
+                            <button type="button" class="badge rounded-pill text-dark border border-light fs-6 fw-light c2btn-princ" style="height: 2.5rem;">Psychology</button>
+                    </div>
+                    <div class="col-md-12 mb-3 m-3">
+                        <button type="button" class="badge rounded-pill text-dark border border-light fs-6 fw-light c2btn-princ" style="height: 2.5rem;">Mindfulness</button>
+                            <button type="button" class="badge rounded-pill text-dark border border-light fs-6 fw-light c2btn-princ"  style="height: 2.5rem;">Art</button>
+                    </div>
+                </section>
+                <section>
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0 d-flex align-items-center">
+                            <div class="col-md-3">
+                                <img src="https://miro.medium.com/fit/c/48/48/1*XCya8Ey-c6VGpaswpf3rmg.jpeg" class="img-fluid con2-Img" alt="...">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <h5 class="card-title">Charlene Walters</h5>
+                                        <p class="card-text text-muted">Charlene is an entrepreneurship coach...</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="#" class="btn rounded-pill border border-3">Follow</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0 d-flex align-items-center">
+                            <div class="col-md-3">
+                                <img src="	https://miro.medium.com/fit/c/48/48/1*x_mCaDHhKGokPnU3KP_VWA.jpeg" class="img-fluid con2-Img" alt="...">
+                            </div>
+                            <div class="col-md-6">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Alex Kantrowitz</h5>
+                                            <p class="card-text text-muted">Silicon Valley-based journalist covering Big...</p>
+                                    </div>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="#" class="btn rounded-pill border border-3">Follow</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0 d-flex align-items-center">
+                            <div class="col-md-3">
+                                <img src="	https://miro.medium.com/fit/c/48/48/0*ohRxgNPUyuFod_kY.jpeg" class="img-fluid con2-Img" alt="...">
+                            </div>
+                            <div class="col-md-6">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Cory Doctorow</h5>
+                                            <p class="card-text text-muted">Writer, blogger, activist. Blog: https://pluralistic.ne...</p>
+                                    </div>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="#" class="btn rounded-pill border border-3">Follow</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="card mb-3" style="max-width: 540px; padding: 0.5rem;">
+                        <div class="row g-0 d-flex align-items-center">
+                            <div class="col-md-2">
+                                <img src="https://miro.medium.com/fit/c/20/20/1*pKOfOAOvx-fWzfITATgGRg.jpeg" class="img-fluid rounded-start" style="width: 2rem;" alt="...">
+                            </div>
+                            <div class="col-md-10">
+                                <h6 class="card-title text-start">Zulie Rane in The Startup</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <h4 class="card-title mb-2">How I Made $10,495.33 in a Single Month of Freelance Writing</h4>
+                                <p class="card-text text-muted">Jul 16· 5 min read</p>
+                        </div>
+                    </div>
+                    <div class="card mb-3" style="max-width: 540px; padding: 0.5rem;">
+                        <div class="row g-0 d-flex align-items-center">
+                            <div class="col-md-2">
+                                <img src="https://miro.medium.com/fit/c/20/20/1*B-Gyr_hE_v7W17TtAYhjPw.jpeg" class="img-fluid rounded-start" style="width: 2rem;" alt="...">
+                            </div>
+                            <div class="col-md-10">
+                                <h6 class="card-title text-start">Stark Raving</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <h4 class="card-title mb-2 ">Six Designs That White People Never Notice Are Racist</h4>
+                                <p class="card-text text-muted">Jul 25·4 min read</p>
+                        </div>
+                    </div>
+                    <div class="card mb-3" style="max-width: 540px; padding: 0.5rem;">
+                        <div class="row g-0 d-flex align-items-center">
+                            <div class="col-md-2">
+                                <img src="https://miro.medium.com/fit/c/20/20/1*hPB2vN7j1esBCFCBIpIErw.png" class="img-fluid rounded-start" style="width: 2rem;" alt="...">
+                            </div>
+                            <div class="col-md-10">
+                                <h6 class="card-title text-start">The Simple Reasons Why Cryptocurrency Will Never Be Mainstream</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <h4 class="card-title mb-2 ">Billie Eilish losing 100,000 followers from Instagram</h4>
+                                <p class="card-text text-muted">Sep 25·5 min read</p>
+                        </div>
+                    </div>
+                    <div class="card mb-3" style="max-width: 540px; padding: 0.5rem;">
+                        <div class="row g-0 d-flex align-items-center">
+                            <div class="col-md-2">
+                                <img src="https://miro.medium.com/fit/c/20/20/1*_UgdYt5NyS-ddvj-ZM1Giw.png" class="img-fluid rounded-start" style="width: 2rem;" alt="...">
+                            </div>
+                            <div class="col-md-10">
+                                <h6 class="card-title text-start">Jason Bell in CodeX</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <h4 class="card-title mb-2 ">How to Make $1,000,000 a Year In Data Science and Machine Learning — A Fool-Proof Method</h4>
+                                <p class="card-text text-muted">Aug 5·3 min read</p>
+                        </div>
+                    </div>
+                    <div class="card mb-3" style="max-width: 540px; padding: 0.5rem;">
+                        <div class="row g-0 d-flex align-items-center">
+                            <div class="col-md-2">
+                                <img src="	https://miro.medium.com/fit/c/20/20/1*LN-L_oOkAsTIK_KoSnx_DQ.png" class="img-fluid rounded-start" style="width: 2rem;" alt="...">
+                            </div>
+                            <div class="col-md-10">
+                                <h6 class="card-title text-start">Harish R in I’m Gonna Get That!</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <h4 class="card-title mb-2 ">10 Money Lessons I Wish I Learned When I Was Young</h4>
+                                <p class="card-text text-muted">Sep 20·13 min read</p>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <h6>See all(4)</h6>
+                    </div>
+                </section>
+                <section>
+                    <div class="mb-3">
+                        <button type="button" class="btn btn-light text-muted">Help</button>
+                            <button type="button" class="btn btn-light text-muted">Status</button>
+                                <button type="button" class="btn btn-light text-muted">Writers</button>
+                                    <button type="button" class="btn btn-light text-muted">Blog</button>
+                                        <button type="button" class="btn btn-light text-muted">carees</button>
+                    </div>
+                    <div class="mb-3">
+                        <button type="button" class="btn btn-light text-muted">Privacy</button>
+                            <button type="button" class="btn btn-light text-muted">Terms</button>
+                                <button type="button" class="btn btn-light text-muted">About</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/medium.js"></script>
+</body>
+<!---<script src="java/post.js"></script>--->
+</html>
