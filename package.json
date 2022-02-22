@@ -10,10 +10,19 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanmcolorado/maqueta_bacend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/juanmcolorado/maqueta_bacend/issues"
+  },
+  "homepage": "https://github.com/juanmcolorado/maqueta_bacend#readme",
   "description": ""
 }
