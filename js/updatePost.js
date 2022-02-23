@@ -1,5 +1,5 @@
 //////////Obtener un posts con jq GET
-const idPost = location.search.slice(1)
+const idPost = location.search.slice(8)
 console.log(idPost)
 
 $(document).ready(function(){
@@ -10,9 +10,7 @@ $(document).ready(function(){
     .then(response => response.json())
     .then(json => {
         const posts = json.posts
-        console.log(posts)
-        console.log(posts.title)
-        console.log(json.posts.title)
+
         document.querySelector('#title').value = posts.title,
         document.querySelector('#imgPerfil').value = posts.imgPerfil,
         document.querySelector('#autor').value = posts.author,
