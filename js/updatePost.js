@@ -1,41 +1,49 @@
 //////////Obtener un posts con jq GET
+const idPost = location.search.slice(1)
+console.log(idPost)
 
 $(document).ready(function(){
-    const idPost = location.search.slice(8)
 //----------------------Traer el post que seleccioné con el id--------------------------
-    $.ajax({
-        method: 'GET',
-        url: `https://medium-7cfcc-default-rtdb.firebaseio.com/${idPost}.json`
-    }).done((data) => {
-        document.querySelector('#title').value = data.title,
-        document.querySelector('#imgPerfil').value = data.imgPerfil,
-        document.querySelector('#autor').value = data.author,
-        document.querySelector('#readingTime').value = data.readingTime,
-        document.querySelector('#formFile').value = data.formFile,
-        document.querySelector('#abstract').value = data.abstract,
-        document.querySelector("#inputGroupSelect01").value = data.category,
-        document.querySelector('#postContent').value = data.postContent
-    }
-    ).fail((err) => {
-        console.log(err)
+    fetch(`http://localhost:8080/posts/${idPost}`, {
+    method: 'GET',
     })
+    .then(response => response.json())
+    .then(json => {
+        const posts = json.posts
+        console.log(posts)
+        console.log(posts.title)
+        console.log(json.posts.title)
+        document.querySelector('#title').value = posts.title,
+        document.querySelector('#imgPerfil').value = posts.imgPerfil,
+        document.querySelector('#autor').value = posts.author,
+        document.querySelector('#readingTime').value = posts.readingTime,
+        document.querySelector('#formFile').value = posts.formFile,
+        document.querySelector('#abstract').value = posts.abstract,
+        document.querySelector("#inputGroupSelect01").value = posts.category,
+        document.querySelector('#postContent').value = posts.postContent
+    })
+    .catch(error => {
+        console.error('GET POSTS ERROR: ', error)
+      })
 //----------------------Actualizar el post----------------------------------
-    const updateUserFetch =  (objPost, idPost) => {
-        $.ajax({
-            method:'PATCH', 
-            url:`https://medium-7cfcc-default-rtdb.firebaseio.com/${idPost}.json`,
-            data: JSON.stringify(
-                objPost
-            )
-        }).done(function(response){
-            console.log(response)
-            // do something
-            $('#alert__response').css('display','block')
-            location.pathname='/index.html'
-        }) .fail( function (err) {
-            console.log(err)
-        })
-    }
+const updateUserFetch =  (objPost, idPost) => {
+    fetch(`http://localhost:8080/posts/${idPost}`, {
+        method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(objPost)
+    })
+    .then(response => {
+        console.log(response)
+        // do something
+        $('#alert__response').css('display','block')
+        location.pathname='/index.html'
+    })
+    .catch(error => {
+        console.error('GET POSTS ERROR: ', error)
+      })
+}
 //----------------------Función para el método Patch--------------------------
     let updatePost = document.querySelector('#updatePost')
     updatePost.addEventListener('click', () => {
@@ -80,18 +88,23 @@ $(document).ready(function(){
     })
 //----------------------Método Delete---------------------------------
     const deletePost = (idPost) => {
-        $.ajax({
-            method:'DELETE',
-            url: `https://medium-7cfcc-default-rtdb.firebaseio.com/${idPost}.json`
-        }).done(function(response){
+        fetch(`http://localhost:8080/posts/${idPost}`, {
+            method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                // body: JSON.stringify(objPost)
+        })
+        .then(response => {
             console.log(response)
             // do something
+            $('#alert__response').css('display','block')
             location.pathname='/index.html'
-        }) .fail( function (err) {
-            console.log(err)
         })
-    }
-
+        .catch(error => {
+            console.error('GET POSTS ERROR: ', error)
+          })
+}
     let btnDeletePost = document.querySelector('#deletePost')
     btnDeletePost.addEventListener('click', () => {
         console.log('eliminando post')
