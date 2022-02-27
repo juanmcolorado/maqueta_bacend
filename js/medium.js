@@ -70,7 +70,7 @@ fetch('http://localhost:8080/posts', {
   .then(response => response.json())
 
   .then(json => {
-    const posts = json.posts
+    const posts = json.posts.reverse()
    
     let cardPost = ''
 
