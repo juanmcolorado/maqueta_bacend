@@ -1,5 +1,5 @@
 
-/*
+
 $(document).ready(function(){
 
     let btnSendUser = document.querySelector('#sendUser')
@@ -42,4 +42,4 @@ $(document).ready(function(){
     
         })
     })
-    */
+    
